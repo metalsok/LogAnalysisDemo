@@ -97,8 +97,7 @@ function homeCtrl($scope, client, esFactory, homeService) {
 
 
         date = homeService.createDate(vm.startDate1, vm.endDate1);
-
-gi
+        
         if (vm.keyword1 != null) {
             filters = homeService.createFilters(vm.keyword1, vm.keyword2, vm.keyword3);
             query = homeService.createQuery("", vm.profession1, vm.country1);
