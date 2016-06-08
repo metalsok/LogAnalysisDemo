@@ -77,8 +77,9 @@ function homeCtrl($scope, client, esFactory, homeService) {
 
     var date;
     var query;
-    vm.startDate1 = new Date("2013-03-01");
-    vm.endDate1 = new Date("2016-03-01");
+    var filters;
+    vm.startDate1 = new Date("2014-01-01");
+    vm.endDate1 = new Date("2015-03-01");
 
     vm.startDate2 = new Date("2013-03-01");
     vm.endDate2 = new Date("2016-03-01");
@@ -97,11 +98,13 @@ function homeCtrl($scope, client, esFactory, homeService) {
 
         date = homeService.createDate(vm.startDate1, vm.endDate1);
 
-
+gi
         if (vm.keyword1 != null) {
-            query = homeService.createQuery(vm.keyword1, vm.profession1, vm.country1);
-            var filters = homeService.createFilters(vm.keyword1, vm.keyword2, vm.keyword3);
+            filters = homeService.createFilters(vm.keyword1, vm.keyword2, vm.keyword3);
+            query = homeService.createQuery("", vm.profession1, vm.country1);
+            console.log(vm.keyword1, vm.keyword2, vm.keyword3, filters);
             vm.kibanaFrameLink = baseURL + "type=line&indexPattern=" + hash + "&_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(" + date + "))&_a=(filters:!(),linked:!f,query:(query_string:(analyze_wildcard:!t,query:'" + query + "')),uiState:(),vis:(aggs:!((id:'1',params:(),schema:metric,type:count),(id:'2',params:(customInterval:'2h',extended_bounds:(),field:'@timestamp',interval:" + vm.interval + ",min_doc_count:1),schema:segment,type:date_histogram),(id:'3',params:(filters:!(" + filters + ")),schema:group,type:filters)),listeners:(),params:(addLegend:!t,addTimeMarker:!f,addTooltip:!t,defaultYExtents:!f,drawLinesBetweenPoints:!t,interpolate:linear,radiusRatio:9,scale:linear,setYExtents:!f,shareYAxis:!t,showCircles:!t,smoothLines:!f,times:!(),yAxis:()),type:line))";
+
         }
 
 

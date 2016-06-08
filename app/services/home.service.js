@@ -22,32 +22,32 @@ app.service('homeService', ['client', '$filter', function (client, $filter) {
 
     this.createQuery = function (keyw, prof, coun) {
 
-        if (prof === null) {
+        if (prof == null) {
             prof = "Any"
         }
-        if (coun === null) {
+        if (coun == null) {
             coun = "Any"
         }
 
-        var query = null;
+        var query = "";
 
-        if (keyw == null && (prof == "Any" || prof == null) && (coun == "Any" || coun == null)) {
+        if (keyw == "" && (prof == "Any" || prof == "") && (coun == "Any" || coun == "")) {
             query = "*";
         }
 
-        if (keyw != null) {
+        if (keyw != "") {
             query = "query:\"" + keyw + "\"";
         }
 
-        if (!(prof == "Any" || prof == null)) {
+        if (!(prof == "Any" || prof == "")) {
             if (keyw != "") {
                 query += " AND ";
             }
             query += "profession:\"" + prof + "\"";
         }
 
-        if (!(coun == "Any" || coun == null)) {
-            if (!(keyw == null && (prof == "Any" || prof == null))) {
+        if (!(coun == "Any" || coun == "")) {
+            if (!(keyw == "" && (prof == "Any" || prof == ""))) {
                 query += " AND ";
             }
             query += "country:\"" + coun + "\"";
@@ -63,11 +63,11 @@ app.service('homeService', ['client', '$filter', function (client, $filter) {
     this.createFilters = function (keyw1, keyw2, keyw3) {
         var filters = "(input:(query:(query_string:(analyze_wildcard:!t,query:'query:\"" + keyw1 + "\"'))),label:'" + keyw1 + "')";
 
-        if (keyw2 != null) {
+        if (keyw2 != "") {
             filters += ",(input:(query:(query_string:(analyze_wildcard:!t,query:'query:\"" + keyw2 + "\"'))),label:'" + keyw2 + "')";
         }
 
-        if (keyw3 != null) {
+        if (keyw3 != "") {
             filters += ",(input:(query:(query_string:(analyze_wildcard:!t,query:'query:\"" + keyw3 + "\"'))),label:'" + keyw3 + "')";
         }
 
