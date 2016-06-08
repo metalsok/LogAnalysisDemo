@@ -1,0 +1,366 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+        <h3>Log Analysis Visualizations</h3>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="More">
+            <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+        </md-button>
+    </div>
+    <md-content>
+        <md-tabs md-dynamic-height="" md-border-bottom="">
+            <md-tab label="one">
+                <md-content class="md-padding">
+                    <div layout="row" layout-xs="column">
+                        <div flex>
+                            <iframe src="{{vm.kibanaFrameLink}}" height="600" width="800"></iframe>
+                        </div>
+
+                        <div flex>
+                            <h2>Occurrence of Keywords</h2>
+                            <form role="form">
+
+                                <div layout-gt-sm="row">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Keyword 1</label>
+                                        <input ng-model="vm.keyword1">
+
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Keyword 2</label>
+                                        <input ng-model="vm.keyword2">
+
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Keyword 3</label>
+                                        <input ng-model="vm.keyword3">
+
+                                    </md-input-container>
+
+                                </div>
+                                <div>
+                                    <md-input-container>
+                                        <label>Profession</label>
+                                        <md-select ng-model="vm.profession1">
+                                            <md-option ng-repeat="profession1 in vm.professions"
+                                                       value="{{profession1.key}}" >
+                                                {{profession1.key}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Country</label>
+                                        <md-select ng-model="vm.country1">
+                                            <md-option ng-repeat="country1 in vm.countries" value="{{country1.key}}">
+                                                {{country1.key}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label>Interval</label>
+                                        <md-select ng-model="vm.interval">
+                                            <md-option ng-repeat="interval1 in vm.intervals" value="{{interval1.key}}"
+                                                       ng-selected="$first">
+                                                {{interval1.value}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+
+                                <div>
+                                    <md-datepicker ng-model="vm.startDate1" md-placeholder="Enter date"></md-datepicker>
+                                    <md-datepicker ng-model="vm.endDate1" md-placeholder="Enter date"></md-datepicker>
+                                    <md-button type="submit" ng-click="vm.occuranceOfKeywords()" class="md-raised">
+                                        Submit
+                                    </md-button>
+
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+
+                </md-content>
+            </md-tab>
+
+            <md-tab label="two">
+                <md-content class="md-padding">
+                    <div layout="row">
+                        <div flex>
+                            <iframe src="{{vm.kibanaFrameLink2}}" height="600" width="800"></iframe>
+                        </div>
+
+                        <div flex><h2>Session IDs</h2>
+                            <form role="form">
+
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Query</label>
+                                    <input ng-model="vm.query2">
+                                </md-input-container>
+
+
+                                <div>
+                                    <md-slider-container flex>
+                                        <md-input-container>
+                                            <input flex type="number" ng-model="vm.size2" aria-label="volume"
+                                                   aria-controls="volume-slider">
+                                        </md-input-container>
+                                        <md-slider ng-model="vm.size2" min="1" max="20" aria-label="volume"
+                                                   class="md-accent" md-vertical
+                                                   md-range></md-slider>
+                                        </md-slider>
+
+                                    </md-slider-container>
+
+                                    <md-datepicker ng-model="vm.startDate2" md-placeholder="Enter date"></md-datepicker>
+                                    <md-datepicker ng-model="vm.endDate2" md-placeholder="Enter date"></md-datepicker>
+                                    <md-button type="submit" ng-click="vm.sesionId()" class="md-raised">
+                                        Submit
+                                    </md-button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </md-content>
+            </md-tab>
+
+            <md-tab label="three">
+                <md-content class="md-padding">
+                    <div layout="row">
+                        <div flex>
+                            <iframe src="{{vm.kibanaFrameLink3}}" height="600" width="800"></iframe>
+                        </div>
+
+                        <div flex><h2>Most Common (Medical) Keywords</h2>
+                            <form role="form">
+                                <div>
+                                    <md-input-container>
+                                        <label>Class</label>
+                                        <md-select ng-model="vm.class3">
+                                            <md-option ng-repeat="class3 in vm.classes"
+                                                       value="{{class3.value}}" ng-selected="$first">
+                                                {{class3.value}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+
+                                    <md-input-container>
+                                        <label>Profession</label>
+                                        <md-select ng-model="vm.profession3">
+                                            <md-option ng-repeat="profession3 in vm.professions"
+                                                       value="{{profession3.key}}" ng-disabled="$index === 1">
+                                                {{profession3.key}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+
+                                    <md-input-container>
+                                        <label>Country</label>
+                                        <md-select ng-model="vm.country3">
+                                            <md-option ng-repeat="country3 in vm.countries" value="{{country3.key}}">
+                                                {{country3.key}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                                <div>
+                                    <md-slider-container flex>
+                                        <md-input-container>
+                                            <input flex type="number" ng-model="vm.size3" aria-label="volume"
+                                                   aria-controls="volume-slider">
+                                        </md-input-container>
+                                        <md-slider ng-model="vm.size3" min="1" max="20" aria-label="volume"
+                                                   id="volume-slider"
+                                                   class="md-accent" md-vertical
+                                                   md-range></md-slider>
+                                        </md-slider>
+
+                                    </md-slider-container>
+
+                                    <md-datepicker ng-model="vm.startDate3" md-placeholder="Enter date"></md-datepicker>
+                                    <md-datepicker ng-model="vm.endDate3" md-placeholder="Enter date"></md-datepicker>
+                                    <md-button type="submit" ng-click="vm.mostCommonKeywords()" class="md-raised">Submit
+                                    </md-button>
+
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+
+                </md-content>
+
+
+            </md-tab>
+
+            <md-tab label="four">
+
+
+                <md-content class="md-padding">
+                    <div layout="row">
+                        <div flex>
+                            <iframe src="{{vm.kibanaFrameLink4}}" height="600" width="800"></iframe>
+                        </div>
+
+                        <div flex>
+                            <h2>Associated Keywords/Concepts</h2>
+                            <form role="form">
+                                <div>
+
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Keyword(s) </label>
+                                        <input ng-model="vm.keywords">
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label>Class</label>
+                                        <md-select ng-model="vm.class4">
+                                            <md-option ng-repeat="class4 in vm.classes"
+                                                       value="{{class4.value}}" ng-selected="$first">
+                                                {{class4.value}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+
+                                    <md-input-container>
+                                        <label>Profession</label>
+                                        <md-select ng-model="vm.profession4">
+                                            <md-option ng-repeat="profession4 in vm.professions"
+                                                       value="{{profession4.key}}" ng-disabled="$index === 1">
+                                                {{profession4.key}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+
+                                    <md-input-container>
+                                        <label>Country</label>
+                                        <md-select ng-model="vm.country4">
+                                            <md-option ng-repeat="country4 in vm.countries" value="{{country4.key}}">
+                                                {{country4.key}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                                <div>
+                                    <md-slider-container flex>
+                                        <md-input-container>
+                                            <input flex type="number" ng-model="vm.size4" aria-label="volume"
+                                                   aria-controls="volume-slider">
+                                        </md-input-container>
+                                        <md-slider ng-model="vm.size4" min="1" max="20" aria-label="volume"
+                                                   class="md-accent" md-vertical
+                                                   md-range></md-slider>
+                                        </md-slider>
+
+                                    </md-slider-container>
+
+                                    <md-datepicker ng-model="vm.startDate4" md-placeholder="Enter date"></md-datepicker>
+                                    <md-datepicker ng-model="vm.endDate4" md-placeholder="Enter date"></md-datepicker>
+                                    <md-button type="submit" ng-click="vm.setAssosiated()" class="md-raised">Submit
+                                    </md-button>
+
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+
+                </md-content>
+
+            </md-tab>
+
+            <md-tab label="five">
+
+
+                <md-content class="md-padding">
+
+                    <div layout="row">
+                        <div flex>
+                            <iframe src="{{vm.kibanaFrameLink5}}" height="600" width="800"></iframe>
+                        </div>
+
+                        <div flex>
+                            <h2>Domains Visited</h2>
+                            <form role="form">
+                                <div>
+
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Query</label>
+                                        <input ng-model="vm.domainQuery">
+                                    </md-input-container>
+
+
+                                    <md-input-container>
+                                        <label>Profession</label>
+                                        <md-select ng-model="vm.profession5">
+                                            <md-option ng-repeat="profession5 in vm.professions"
+                                                       value="{{profession5.key}}">
+                                                {{profession5.key}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+
+                                    <md-input-container>
+                                        <label>Country</label>
+                                        <md-select ng-model="vm.country5">
+                                            <md-option ng-repeat="country5 in vm.countries" value="{{country5.key}}">
+                                                {{country5.key}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                                <div>
+                                    <md-slider-container flex>
+                                        <md-input-container>
+                                            <input flex type="number" ng-model="vm.size5" aria-label="volume"
+                                                   aria-controls="volume-slider">
+                                        </md-input-container>
+                                        <md-slider ng-model="vm.size5" min="1" max="20" aria-label="volume"
+                                                   class="md-accent" md-vertical
+                                                   md-range></md-slider>
+                                        </md-slider>
+
+                                    </md-slider-container>
+
+                                    <md-datepicker ng-model="vm.startDate5" md-placeholder="Enter date"></md-datepicker>
+                                    <md-datepicker ng-model="vm.endDate5" md-placeholder="Enter date"></md-datepicker>
+                                    <md-button type="submit" ng-click="vm.domains()" class="md-raised">Submit
+                                    </md-button>
+
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+        </md-tabs>
+    </md-content>
+</md-toolbar>
+
+
+<footer>
+    <div layout="row" layout-align="center center">
+        <h2>My Awesome Footer</h2>
+    </div>
+</footer>
+
+
+

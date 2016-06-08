@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<script src="./script.js" type="text/javascript"></script>
+<title>File Upload</title>
+</head>
+
+<body onload="loadOpts()">
+
+<form action="/fileupload" enctype="multipart/form-data" method="post">
+	<p>Select a .csv file for upload and specify its structure</p>
+	<p>File to upload : <input accept=".csv" name="file" type="file" /></p>
+	<p id="fields">Structure : <select id="field1" name="field1"></select>,<select id="field2" name="field2">
+	</select>,<select id="field3" name="field3"></select>,<select id="field4" name="field4">
+	</select>,<select id="field5" name="field5"></select>,<select id="field6" name="field6">
+	</select>,<select id="field7" name="field7"></select>,<select id="field8" name="field8">
+	</select>,<select id="field9" name="field9"></select>,<select id="field10" name="field10">
+	</select></p>
+	<p>Specify the date format :
+	<input name="dateformat" style="width: 189px" type="text" />(e.g. 2014-06-26 
+	07:51:35.263 corresponds to YYYY-MM-dd HH:mm:ss.SSS)</p>
+	<p><input name="anno" type="checkbox" checked="checked" />Apply annotation to query and title?</p>
+	<p><input name="overwrite" type="checkbox" />Overwrite existing index?</p>
+	<input id="hash" name="hash" type="hidden" />
+	<p><input type="submit" value="Upload" /></p>
+</form>
+
+</body>
+
+</html>

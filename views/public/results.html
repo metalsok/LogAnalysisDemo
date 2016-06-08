@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+</link>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="./components.js"></script>
+<script src="./feedbackscript.js"></script>
+<script src="./jqueryscript.js"></script>
+<script src="./other.js"></script>
+<script src="./vars.js"></script>
+<script src="./visualizations.js"></script>
+<title>Results</title>
+</head>
+
+<body>
+
+<table>
+	<tr>
+		<td>Annotation : </td>
+		<td id="anno"></td>
+	</tr>
+	<tr>
+		<td>Indexing : </td>
+		<td id="indexing"></td>
+	</tr>
+	<tr>
+		<td>Total : </td>
+		<td id="total"></td>
+	</tr>
+</table>
+<h2>Occurrence of Keywords</h2>
+<table>
+	<tr>
+		<td>Keyword : </td>
+		<td><input id="occkeyw1" type="text" />,<input id="occkeyw2" type="text" />,<input id="occkeyw3" type="text" /></td>
+		<td rowspan="5">
+		<input onclick="occurrence()" type="button" value="Go" /></td>
+	</tr>
+	<tr>
+		<td>Profession : </td>
+		<td><select id="occprof" name="professions"></select></td>
+	</tr>
+	<tr>
+		<td>Country : </td>
+		<td><select id="occcoun" name="countries"></select></td>
+	</tr>
+	<tr>
+		<td>Date : </td>
+		<td><input id="occfrom" name="datefrom" type="text" /> -
+		<input id="occto" name="dateto" type="text" /></td>
+	</tr>
+	<tr>
+		<td>Interval : </td>
+		<td><select id="occint" name="interval"></select></td>
+	</tr>
+</table>
+<iframe id="occfrm" height="600" width="800"></iframe>
+<h2>Session IDs</h2>
+<table>
+	<tr>
+		<td>Query : </td>
+		<td><input id="sessquer" type="text" /></td>
+		<td rowspan="3"><input onclick="sessions()" type="button" value="Go" /></td>
+	</tr>
+	<tr>
+		<td>Size : </td>
+		<td><input id="sesssize" max="20" min="5" type="number" value="20" /></td>
+	</tr>
+	<tr>
+		<td>Date : </td>
+		<td><input id="sessfrom" name="datefrom" type="text" /> -
+		<input id="sessto" name="dateto" type="text" /></td>
+	</tr>
+</table>
+<iframe id="sessfrm" height="600" width="800"></iframe>
+<h2>Most Common Medical Keywords</h2>
+<table>
+	<tr>
+		<td>Annotation Class : </td>
+		<td><select id="annoclass" name="anno" /></td>
+		<td rowspan="5"><input onclick="annotated()" type="button" value="Go" /></td>
+	</tr>
+	<tr>
+		<td>Profession : </td>
+		<td><select id="annoprof" name="professions"></select></td>
+	</tr>
+	<tr>
+		<td>Country : </td>
+		<td><select id="annocoun" name="countries"></select></td>
+	</tr>
+	<tr>
+		<td>Size : </td>
+		<td><input id="annosize" max="20" min="1" type="number" value="10" /></td>
+	</tr>
+	<tr>
+		<td>Date : </td>
+		<td><input id="annofrom" name="datefrom" type="text" /> -
+		<input id="annoto" name="dateto" type="text" /></td>
+	</tr>
+</table>
+<iframe id="annofrm" height="600" width="800"></iframe>
+<h2>Associated Concepts</h2>
+<table>
+	<tr>
+		<td>Concept : </td>
+		<td><input id="assocon" type="text" /><select id="assoclass" name="anno">
+		</select></td>
+		<td rowspan="6">
+		<input onclick="associated()" type="button" value="Go" /></td>
+	</tr>
+	<tr>
+		<td>Associated : </td>
+		<td><select id="assotarget" name="anno"></select></td>
+	</tr>
+	<tr>
+		<td>Profession : </td>
+		<td><select id="assoprof" name="professions"></select></td>
+	</tr>
+	<tr>
+		<td>Country : </td>
+		<td><select id="assocoun" name="countries"></select></td>
+	</tr>
+	<tr>
+		<td>Size : </td>
+		<td><input id="assosize" max="20" min="1" type="number" value="10" /></td>
+	</tr>
+	<tr>
+		<td>Date : </td>
+		<td><input id="assofrom" name="datefrom" type="text" /> -
+		<input id="assoto" name="dateto" type="text" /></td>
+	</tr>
+</table>
+<p id="assotitle"></p>
+<iframe id="assofrm" height="600" width="800"></iframe>
+<h2>Domains Visited</h2>
+<table>
+	<tr>
+		<td>Query : </td>
+		<td><input id="domquer" type="text" /></td>
+		<td rowspan="5"><input onclick="domains()" type="button" value="Go" /></td>
+	</tr>
+	<tr>
+		<td>Profession : </td>
+		<td><select id="domprof" name="professions"></select></td>
+	</tr>
+	<tr>
+		<td>Country : </td>
+		<td><select id="domcoun" name="countries"></select></td>
+	</tr>
+	<tr>
+		<td>Size : </td>
+		<td><input id="domsize" max="20" min="1" type="number" value="10" /></td>
+	</tr>
+	<tr>
+		<td>Date : </td>
+		<td><input id="domfrom" name="datefrom" type="text" /> -
+		<input id="domto" name="dateto" type="text" /></td>
+	</tr>
+</table>
+<iframe id="domfrm" height="600" width="800"></iframe>
+
+</body>
+
+</html>
