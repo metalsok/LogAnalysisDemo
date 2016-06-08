@@ -23,7 +23,7 @@ var app = angular.module('loganalysisApp', ['ngRoute', 'ngMaterial', 'elasticsea
 
     .service('client', function (esFactory) {
         return esFactory({
-            host: 'http://localhost:9300',
+            host: 'http://kronos.ifs.tuwien.ac.at:9200',
             apiVersion: '2.1',
             log: 'trace'
         });
