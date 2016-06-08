@@ -63,11 +63,11 @@ app.service('homeService', ['client', '$filter', function (client, $filter) {
     this.createFilters = function (keyw1, keyw2, keyw3) {
         var filters = "(input:(query:(query_string:(analyze_wildcard:!t,query:'query:\"" + keyw1 + "\"'))),label:'" + keyw1 + "')";
 
-        if (keyw2 != "") {
+        if (keyw2 != null) {
             filters += ",(input:(query:(query_string:(analyze_wildcard:!t,query:'query:\"" + keyw2 + "\"'))),label:'" + keyw2 + "')";
         }
 
-        if (keyw3 != "") {
+        if (keyw3 != null) {
             filters += ",(input:(query:(query_string:(analyze_wildcard:!t,query:'query:\"" + keyw3 + "\"'))),label:'" + keyw3 + "')";
         }
 

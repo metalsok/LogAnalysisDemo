@@ -68,8 +68,8 @@ function homeCtrl($scope, client, esFactory, homeService) {
         {value: "Yearly", key: "y"}];
 
     vm.classes = [
-        {value: "All Classes", key: "All Classes"},
-        {value: "All Medical", key: "All Medical"},
+        {value: "All Keywords", key: ""},
+        {value: "All Medical", key: "annos.aaa"},
         {value: "Anatomy", key: "Anatomy"},
         {value: "Disease", key: "Disease"},
         {value: "Drug", key: "Drug"},
@@ -101,7 +101,6 @@ function homeCtrl($scope, client, esFactory, homeService) {
         if (vm.keyword1 != null) {
             query = homeService.createQuery(vm.keyword1, vm.profession1, vm.country1);
             var filters = homeService.createFilters(vm.keyword1, vm.keyword2, vm.keyword3);
-            console.log(filters)
             vm.kibanaFrameLink = baseURL + "type=line&indexPattern=" + hash + "&_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(" + date + "))&_a=(filters:!(),linked:!f,query:(query_string:(analyze_wildcard:!t,query:'" + query + "')),uiState:(),vis:(aggs:!((id:'1',params:(),schema:metric,type:count),(id:'2',params:(customInterval:'2h',extended_bounds:(),field:'@timestamp',interval:" + vm.interval + ",min_doc_count:1),schema:segment,type:date_histogram),(id:'3',params:(filters:!(" + filters + ")),schema:group,type:filters)),listeners:(),params:(addLegend:!t,addTimeMarker:!f,addTooltip:!t,defaultYExtents:!f,drawLinesBetweenPoints:!t,interpolate:linear,radiusRatio:9,scale:linear,setYExtents:!f,shareYAxis:!t,showCircles:!t,smoothLines:!f,times:!(),yAxis:()),type:line))";
         }
 
