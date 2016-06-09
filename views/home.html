@@ -1,9 +1,9 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
+        <h2>Interactive Exploration of Healthcare Queries</h2>
         <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
             <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
         </md-button>
-        <h3>Interactive Exploration of Healthcare Queries</h3>
         <span flex></span>
         <md-button class="md-icon-button" aria-label="More">
             <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
@@ -15,7 +15,7 @@
                 <md-content class="md-padding">
                     <div layout="row" layout-xs="column">
                         <div flex>
-                            <iframe src="{{vm.kibanaFrameLink}}" height="600" width="800"></iframe>
+                            <iframe src="{{vm.kibanaFrameLink}}" height="600" width="90%"></iframe>
                         </div>
 
                         <div flex>
@@ -45,7 +45,7 @@
                                         <label>Profession</label>
                                         <md-select ng-model="vm.profession1">
                                             <md-option ng-repeat="profession1 in vm.professions"
-                                                       value="{{profession1.key}}" >
+                                                       value="{{profession1.key}}">
                                                 {{profession1.key}}
                                             </md-option>
                                         </md-select>
@@ -92,7 +92,7 @@
                 <md-content class="md-padding">
                     <div layout="row">
                         <div flex>
-                            <iframe src="{{vm.kibanaFrameLink2}}" height="600" width="800"></iframe>
+                            <iframe src="{{vm.kibanaFrameLink2}}" height="600" width="90%"></iframe>
                         </div>
 
                         <div flex><h2>Session IDs</h2>
@@ -136,7 +136,7 @@
                 <md-content class="md-padding">
                     <div layout="row">
                         <div flex>
-                            <iframe src="{{vm.kibanaFrameLink3}}" height="600" width="800"></iframe>
+                            <iframe src="{{vm.kibanaFrameLink3}}" height="600" width="90%"></iframe>
                         </div>
 
                         <div flex><h2>Most Common (Medical) Keywords</h2>
@@ -146,7 +146,7 @@
                                         <label>Class</label>
                                         <md-select ng-model="vm.class3">
                                             <md-option ng-repeat="class3 in vm.classes"
-                                                       value="{{class3.value}}" ng-selected="$first">
+                                                       value="{{class3.key}}" ng-selected="$first">
                                                 {{class3.value}}
                                             </md-option>
                                         </md-select>
@@ -211,7 +211,7 @@
                 <md-content class="md-padding">
                     <div layout="row">
                         <div flex>
-                            <iframe src="{{vm.kibanaFrameLink4}}" height="600" width="800"></iframe>
+                            <iframe src="{{vm.kibanaFrameLink4}}" height="600" width="90%"></iframe>
                         </div>
 
                         <div flex>
@@ -292,7 +292,7 @@
 
                     <div layout="row">
                         <div flex>
-                            <iframe src="{{vm.kibanaFrameLink5}}" height="600" width="800"></iframe>
+                            <iframe src="{{vm.kibanaFrameLink5}}" height="600" width="90%"></iframe>
                         </div>
 
                         <div flex>
@@ -356,11 +356,6 @@
 </md-toolbar>
 
 
-<footer>
-    <div layout="row" layout-align="center center" class="md-toolbar-tools">
-        <h1>TU footer</h1>
-    </div>
-</footer>
 
 
 

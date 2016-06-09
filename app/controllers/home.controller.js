@@ -70,10 +70,10 @@ function homeCtrl($scope, client, esFactory, homeService) {
     vm.classes = [
         {value: "All Keywords", key: ""},
         {value: "All Medical", key: "annos.aaa"},
-        {value: "Anatomy", key: "Anatomy"},
-        {value: "Disease", key: "Disease"},
-        {value: "Drug", key: "Drug"},
-        {value: "Investigation", key: "Investigation"}];
+        {value: "Anatomy", key: "anatomy"},
+        {value: "Disease", key: "disease"},
+        {value: "Drug", key: "drug"},
+        {value: "Investigation", key: "investigation"}];
 
     var date;
     var query;
@@ -81,23 +81,23 @@ function homeCtrl($scope, client, esFactory, homeService) {
     vm.startDate1 = new Date("2014-01-01");
     vm.endDate1 = new Date("2015-03-01");
 
-    vm.startDate2 = new Date("2013-03-01");
-    vm.endDate2 = new Date("2016-03-01");
+    vm.startDate2 = new Date("2014-01-01");
+    vm.endDate2 = new Date("2014-12-31");
 
-    vm.startDate3 = new Date("2013-03-01");
-    vm.endDate3 = new Date("2016-03-01");
+    vm.startDate3 = new Date("2010-01-01");
+    vm.endDate3 = new Date("2016-06-09");
 
-    vm.startDate4 = new Date("2013-03-01");
-    vm.endDate4 = new Date("2016-03-01");
+    vm.startDate4 = new Date("2010-01-01");
+    vm.endDate4 = new Date("2016-06-09");
 
-    vm.startDate5 = new Date("2013-03-01");
-    vm.endDate5 = new Date("2016-03-01");
+    vm.startDate5 = new Date("2010-01-01");
+    vm.endDate5 = new Date("2016-06-09");
 
     vm.occuranceOfKeywords = function () {
 
 
         date = homeService.createDate(vm.startDate1, vm.endDate1);
-        
+
         if (vm.keyword1 != null) {
             filters = homeService.createFilters(vm.keyword1, vm.keyword2, vm.keyword3);
             query = homeService.createQuery("", vm.profession1, vm.country1);
@@ -119,7 +119,7 @@ function homeCtrl($scope, client, esFactory, homeService) {
     vm.mostCommonKeywords = function () {
         date = homeService.createDate(vm.startDate3, vm.endDate3);
         query = homeService.createQuery("", vm.profession3, vm.country3);
-        vm.kibanaFrameLink3 = baseURL + "type=pie&indexPattern=" + hash + "&_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(" + date + "))&_a=(filters:!(),linked:!f,query:(query_string:(analyze_wildcard:!t,query:'" + query + "')),uiState:(),vis:(aggs:!((id:'1',params:(),schema:metric,type:count),(id:'2',params:(field:query" + vm.class3.toLowerCase() + ".aaa,order:desc,orderBy:'1',size:" + vm.size3 + "),schema:segment,type:terms)),listeners:(),params:(addLegend:!t,addTooltip:!t,isDonut:!f,shareYAxis:!t),type:pie))";
+        vm.kibanaFrameLink3 = baseURL + "type=pie&indexPattern=" + hash + "&_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(" + date + "))&_a=(filters:!(),linked:!f,query:(query_string:(analyze_wildcard:!t,query:'" + query + "')),uiState:(),vis:(aggs:!((id:'1',params:(),schema:metric,type:count),(id:'2',params:(field:query" + vm.class3 + ",order:desc,orderBy:'1',size:" + vm.size3 + "),schema:segment,type:terms)),listeners:(),params:(addLegend:!t,addTooltip:!t,isDonut:!f,shareYAxis:!t),type:pie))";
 
     };
 
