@@ -1,11 +1,12 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings">
-            <i class="material-icons">menu</i>
-        </md-button>
+
+        <img id="kconnect" src="../assets/img/kconnect.png" height="70" width=70>
+        </br>
         <h2>Interactive Exploration of Healthcare Queries</h2>
 
         <span flex></span>
+
         <md-button class="md-icon-button" aria-label="More">
             <i class="material-icons">more_vert</i>
         </md-button>
@@ -16,7 +17,7 @@
                 <md-content class="md-padding">
                     <div layout="row" layout-xs="column">
                         <div flex>
-                            <iframe src="{{vm.kibanaFrameLink}}" height="600" width="90%"></iframe>
+                            <iframe src="{{vm.kibanaFrameLink1}}" height="600" width="90%"></iframe>
                         </div>
 
                         <div flex>
@@ -348,15 +349,32 @@
                                 </div>
                             </form>
                         </div>
-
-
                     </div>
-
         </md-tabs>
     </md-content>
 </md-toolbar>
 
 
+<!--
+<footer>
+    <img id="ifs" src="../assets/img/ifs.gif" height="50" width="50">
 
+    <div id="footerText">© 2015 Technische Universität Wien. All Rights Reserved.</div>
+</footer>-->
 
+<footer id="footer">
 
+    <section class="container" id="footer-bottom">
+        <div class="container-inner">
+            <div class="pad group">
+                <div class="grid one-half">
+                    <img id="footer-logo" src="http://www.femtech.at/sites/default/files/TU_Logo.gif" alt="">
+                </div>
+                <div class="grid one-half last">
+                    <p>© 2015 Technische Universität Wien. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</footer>

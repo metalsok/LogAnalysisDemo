@@ -75,6 +75,11 @@ function homeCtrl($scope, client, esFactory, homeService) {
         {value: "Drug", key: "drug"},
         {value: "Investigation", key: "investigation"}];
 
+    vm.kibanaFrameLink1='about:blank';
+    vm.kibanaFrameLink2='about:blank';
+    vm.kibanaFrameLink3='about:blank';
+    vm.kibanaFrameLink4='about:blank';
+    vm.kibanaFrameLink5='about:blank';
     var date;
     var query;
     var filters;
